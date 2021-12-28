@@ -92,6 +92,8 @@ class App {
         form.addEventListener('submit', this._newWorkout.bind(this)); 
         inputType.addEventListener('change', this._toggleElevationField);    
         containerWorkouts.addEventListener('click', this._moveToPopup.bind(this));
+         
+
     };
 
     _getPosition() {
@@ -200,6 +202,13 @@ class App {
 
         // Set local storage to all workouts
         this._setLocalStorage();
+
+
+    }
+
+    _deleteWorkout() {
+        const deleteWorkout = document.querySelector('.workout__delete');
+        deleteWorkout.addEventListener('click', console.log('delete'));   
     }
 
 
@@ -225,6 +234,7 @@ class App {
         let html = `
             <li class="workout workout--${workout.type}" data-id="${workout.id}">
                 <h2 class="workout__title">${workout.description}</h2>
+                
                 <div class="workout__details">
                     <span class="workout__icon">${workout.type === 'running' ? '🏃‍♂️' : '🚴🏽‍♀️'}</span>
                     <span class="workout__value">${workout.distance}</span>
@@ -266,8 +276,14 @@ class App {
                     </div>
                 </li>
                 `
+                // <div class="workout__details workout__delete">
+                //     <span class="workout__icon ">🗑</span>
+                //     <span class="workout__delete--text">delete</span>
+                // </div>
 
                 form.insertAdjacentHTML('afterend', html);
+                this._deleteWorkout();
+
     }
         _moveToPopup(e) {
             const workoutEl = e.target.closest('.workout');
@@ -293,7 +309,6 @@ class App {
 
         _getLocalStorage() {
             const data = JSON.parse(localStorage.getItem('workouts'));
-            console.log(data);
 
             if(!data) return;
 

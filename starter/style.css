@@ -90,6 +90,10 @@ a:visited {
   grid-column: 1 / -1;
 }
 
+.workout__delete--text {
+  margin: auto 0;
+}
+
 .workout__details {
   display: flex;
   align-items: baseline;
