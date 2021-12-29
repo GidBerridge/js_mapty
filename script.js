@@ -206,10 +206,10 @@ class App {
 
     }
 
-    _deleteWorkout() {
-        const deleteWorkout = document.querySelector('.workout__delete');
-        deleteWorkout.addEventListener('click', console.log('delete'));   
-    }
+    // _deleteWorkout() {
+    //     const deleteWorkout = document.querySelector('.workout__delete');
+    //     deleteWorkout.addEventListener('click', console.log('delete'));   
+    // }
 
 
   
@@ -271,7 +271,7 @@ class App {
                     </div>
                     <div class="workout__details">
                         <span class="workout__icon">⛰</span>
-                        <span class="workout__value">${workout.elevationGain}</span>
+                        <span class="workout__value">${workout.elevation}</span>
                         <span class="workout__unit">m</span>
                     </div>
                 </li>
@@ -282,7 +282,7 @@ class App {
                 // </div>
 
                 form.insertAdjacentHTML('afterend', html);
-                this._deleteWorkout();
+                // this._deleteWorkout();
 
     }
         _moveToPopup(e) {
